@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품소개 페이지</title>
+   <style>
+    table,
+    th,
+    td {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        /* 표의 테두리를 병합(통합)할지 여부 표시, 기본은 2줄 */
+    }
+    th,
+    td {
+        padding: 10px 20px;
+    }
+   </style>
+</head>
+
+<body>
+    <hr>
+    <!-- 실선 -->
+     <table>
+        <caption>선물용과 가정용 상품 구성</caption>
+        <thead>
+            <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th colspan="2">개수</th>
+                <!-- 셀(열) 병합 -->
+                <th>가격</th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <td rowspan="2">선물용</th>
+                <!-- 행 병합  -->
+                <th>3kg</th>
+                <th colspan="2">11~16과</th>
+                <td>35,000원</td>
+            </tr>
+            <tr>
+                <td>5kg</td>
+                <td colspan="2">18~26과</td>
+                <td>52,000원</td>
+            </tr>
+            <tr>
+                <td rowspan="2">가정용</td>
+                <td>3kg</td>
+                <td colspan="2">11~16과</td>
+                <td>30,000원</td>
+            </tr>
+            <tr>
+                <td>5kg</td>
+                <td colspan="2">18~26과</td>
+                <td>47,000원</td>
+            </tr>
+        </thead>
+     </table>
+</body>
+</html>
