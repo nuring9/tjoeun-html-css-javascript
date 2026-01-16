@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 100%;
+      }
+      table {
+        width: 30%;
+        margin: 0 auto;
+        /* margin: 위 오른쪽 아래 왼쪽  => margin: 위아래 왼오 => 위아래 0 왼오른쪽 auto */
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      td {
+        padding: 20px;
+        vertical-align: middle;
+      }
+      .inner {
+        width: fit-content;  /* 내용만큼만 너비 */
+        margin: 0 auto;
+      }
+      .p-h {
+        color: red;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      #text-big {
+        margin: 50px auto 0px auto;
+        width: 30%;
+        height: 10vh;
+        line-height: 95px;
+        background-color: gray;
+        color: white;
+        text-align: center;
+        font-size: 3em;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px black;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+            <h1 style="margin-left: 50px;">최신 웹 디자인 트렌드</h1>
+                <div class="inner">
+            <p>
+              <span class="p-h">반응형 웹 디자인 </span><b>-</b> 다양한 화면
+              크기에 최적화하다
+            </p>
+            <p>
+              <span class="p-h">플랫 디자인 </span><b>-</b> 입체에서 평면으로
+            </p>
+            <p><span class="p-h">풀스크린 배경 </span><b>-</b> 콘텐츠에 집중</p>
+            <p>
+              <span class="p-h">원 페이지 사이트 </span><b>-</b> 한 페이지에
+              모든 내용을 담다
+            </p>
+            <p>
+              <span class="p-h">패럴랙스 스크롤링 </span><b>-</b> 동적인 효과로
+              강한 인상을!
+            </p>
+            <p>
+              <span class="p-h">웹 폰트 </span><b>-</b> 웹 타이포그래피를
+              받쳐주는 기술
+            </p>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <p id="text-big">웹 개발 기초</p>
+  </body>
+</html>
