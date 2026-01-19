@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q2</title>
+    <style>
+      #contaner {
+        width: 900px;
+        margin: 20px auto;
+      }
+      #box1 {
+        border: 1px solid black;
+        /* display: inline-block; */
+        float: left;
+        margin: 10px;
+        width: 400px;
+        padding: 10px;
+      }
+      #p-bottom1 {
+        width: 900px;
+        background-color: rgb(43, 43, 43);
+        height: 50px;
+        color: white;
+        text-align: center;
+        /* 한줄일 경우  line-height 로 수평 가운데 정렬 */
+        line-height: 45px;
+      }
+
+      #p-bottom2 {
+        width: 900px;
+        background-color: rgb(43, 43, 43);
+        height: 50px;
+        color: white;
+        text-align: center;
+        /* 여러줄인 경우  line-height 로 수평 가운데 정렬 */
+        display: flex;
+        justify-content: center; /* 수평 */
+        align-items: center; /* 수직 */
+      }
+      #nav {
+        margin: 20px auto;
+        width: 900px;
+        border-top: 1px solid black;
+      }
+      ul {
+        list-style-type: none;
+        text-align: center;
+        display: flex; /* ul이 flex 컨테이너 */
+        justify-content: center; /* li들이 가로 방향(주축) 으로 배치됨, 즉 그 가로 줄 전체를 가운데로 모아줌 */
+        padding: 0;
+      }
+      li {
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="contaner">
+      <h1>강아지 용품 준비하기</h1>
+      <div id="box1">
+        <h3>강아지 집</h3>
+        <p>
+          강아지가 편히 쉴 수 있는 포근한 집이 필요합니다. 강아지의 집은
+          강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요. 집을 구입하실
+          때는 박음질이 잘 되어 있는지, 세탁이 간편한 제품인지 꼭 확인하시고
+          고르시는 것이 좋습니다.
+        </p>
+      </div>
+      <div id="box1">
+        <h3>강아지 집</h3>
+        <p>
+          강아지가 편히 쉴 수 있는 포근한 집이 필요합니다. 강아지의 집은
+          강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요. 집을 구입하실
+          때는 박음질이 잘 되어 있는지, 세탁이 간편한 제품인지 꼭 확인하시고
+          고르시는 것이 좋습니다.
+        </p>
+      </div>
+      <div id="box1">
+        <h3>강아지 집</h3>
+        <p>
+          강아지가 편히 쉴 수 있는 포근한 집이 필요합니다. 강아지의 집은
+          강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요. 집을 구입하실
+          때는 박음질이 잘 되어 있는지, 세탁이 간편한 제품인지 꼭 확인하시고
+          고르시는 것이 좋습니다.
+        </p>
+      </div>
+      <div id="box1">
+        <h3>강아지 집</h3>
+        <p>
+          강아지가 편히 쉴 수 있는 포근한 집이 필요합니다. 강아지의 집은
+          강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요. 집을 구입하실
+          때는 박음질이 잘 되어 있는지, 세탁이 간편한 제품인지 꼭 확인하시고
+          고르시는 것이 좋습니다.
+        </p>
+      </div>
+      <p id="p-bottom2">boxmodel 연습하기</p>
+    </div>
+    <div id="nav">
+      <ul>
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+      </ul>
+    </div>
+  </body>
+</html>

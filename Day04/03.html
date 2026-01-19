@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>박스모델</title>
+    <style>
+      div {
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        margin: 15px;
+        background: #ffd800;
+        border: 2px solid #222;
+      }
+      .round1 {
+        border-radius: 50px 20px / 30px 15px;
+    /*   50px 20px(가로 반지름) 30px 15px(세로 반지름) 
+         50px 20px(top left) 50px 20(top right) 30 15(bottom left) 30 15(bottom right) 
+         서로 다른 타원 라운딩
+     */
+
+     /*
+         / 앞 → 가로 반지름(X축)
+         / 뒤 → 세로 반지름(Y축)
+          가로(X): 50px 20px
+          좌상, 우하 → 50px
+          우상, 좌하 → 20px
+          세로(Y): 30px 15px
+           좌상, 우하 → 30px
+           우상, 좌하 → 15px
+      */
+      }
+      .round2 {
+        border-bottom-right-radius: 50% 30%;
+        /* 오른 쪽 아래 꼭지점 가로 50%, 세로 30px 크기로 라운딩 */
+      }
+      .round3 {
+        border-top-left-radius: 50px 30px;
+        /* 왼쪽 위 꼭지점 가로 50px 세로 30px 크기로 라운딩 */
+      }
+      .round4 {
+        border-top-left-radius: 30px;
+        /* 값이 하나 뿐이면 가로 세로 똑같이 30px 크기로 라운딩 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="round1"></div>
+    <div class="round2"></div>
+    <div class="round3"></div>
+    <div class="round4"></div>
+  </body>
+</html>
