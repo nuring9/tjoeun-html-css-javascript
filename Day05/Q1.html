@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q1</title>
+    <style>
+      #container1 {
+        width: 800px;
+        height: 350px;
+        background-size: cover;
+        background-image: url("/Day04/images/bg5.jpg");
+        background-repeat: no-repeat;
+        /* background: url("/Day04/images/bg5.jpg") left top no-repeat fixed; 로 한줄로 사용 가능*/
+
+        /*  여기 !!
+         display: flex;
+         justify-content: center;  가로 중앙 정렬
+         align-items: center;      세로 중앙 정렬 
+        */
+      }
+      .con1-p {
+        text-align: center;
+        line-height: 200px; /*이걸 사용하지 않으려면 부모 container1에다가 flex를 줘서 중앙 정렬 할 수 있다.*/
+        color: white;
+        font-weight: bold;
+        font-size: 3em;
+        margin: 0;
+      }
+      #container2 {
+        width: 1200px;
+        height: 250px;
+        background-color: gray;
+        color: white;
+        padding: 10px;
+        margin-top: 20px;
+        box-sizing: border-box;
+      }
+      #container3 {
+        width: 1200px;
+        height: 300px;
+        background-image: url(/Day04/images/bg1.jpg);
+        background-size: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container1">
+      <p class="con1-p">Do it!</p>
+    </div>
+    <div>
+      <div id="container2">
+        <h3>웹 디자인 트렌드를 따라잡는 비법 대공개!</h3>
+        <p>
+          그래픽 프로그림으로 웹 디자인 요소를 일일이 만들어 웹사이트를 제작하는
+          시대는 지났다. 이제 모바일, 태블릿, PC 등 멀티 디바이스에 한 번에
+          적용할 수 있는 웹 디자인 방법을 알아야 한다. 바로 코딩을 이용한
+          <b>웹 디자인</b>이다.
+        </p>
+      </div>
+      <div id="container3"></div>
+    </div>
+  </body>
+</html>
