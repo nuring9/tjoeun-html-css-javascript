@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q1</title>
+    <style>
+      /* 실무 필수: 박스 사이즈 계산 방식 초기화 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #container {
+        width: 1000px;
+        margin: 20px auto;
+      }
+
+      /* 1. 상단 이미지 리스트 영역 (Q1) */
+      .q1-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+      }
+
+      .q1-list li {
+        position: relative;
+        margin: 20px;
+        text-align: center;
+        /* 핵심: 이미지 영역 밖으로 나가는 caption을 숨김 */
+        overflow: hidden;
+      }
+
+      .q1-list img {
+        display: block;
+      }
+
+      .caption {
+        position: absolute;
+        top: 200px;
+        padding-top: 20px;
+        width: 100%; /*img 사이즈 맞추기 300x200 */
+        height: 100%;
+        z-index: 10;
+        opacity: 0;
+        background: rgba(
+          0,
+          0,
+          0,
+          0.7
+        ); /* 배경색은 여기서 정의 (이미지와 겹칠 때만 보임) */
+        transition: all 0.3s; /* 부드러운 복귀를 위해 transition 추가 가능 */
+      }
+
+      .caption h3,
+      p {
+        color: white;
+        text-align: center;
+      }
+
+      .q1-list li:hover .caption {
+        /* 이름 | 시간 | 타이밍 | 지연 | 반복 | 방향 | 유지상태 */
+        /* forwards: 애니메이션이 끝난 상태(위로 올라온 상태)를 유지 */
+        animation: up 0.6s ease-out forwards;
+        /* ease-out : 처음엔 빠르게 움직이다가 끝날 때 부드럽게 감속함 
+           forwards : 애니메이션이 끝난 후 다시 원래대로 돌아가지 않고 마지막 상태(top: 0)를 유지함
+        */
+      }
+
+      @keyframes up {
+        from {
+          opacity: 0;
+          top: 200px; /* 이미지 아래에서 시작 */
+        }
+        to {
+          opacity: 1;
+          top: 0;
+        }
+      }
+
+      /* nav는 그냥 감싸는 용도 (필요 없으면 생략 가능) */
+      .navi {
+        width: 100%;
+      }
+
+      /* 실무에서 정렬을 담당하는 핵심 부분 */
+      .navi ul {
+        display: flex; /* li들을 가로로 나열 */
+        justify-content: center; /* li들을 가운데로 모음 */
+        align-items: center; /* 세로 정렬 */
+        list-style: none;
+      }
+
+      .navi ul li {
+        width: 200px;
+        /* 위, 아래, 왼쪽 테두리만 설정 */
+        border-top: 1px solid darkgrey;
+        border-bottom: 1px solid darkgrey;
+        border-left: 1px solid darkgrey;
+        background-color: #eee;
+      }
+      /* 마지막 li 요소에만 오른쪽 테두리 추가 */
+      .navi ul li:last-child {
+        border-right: 1px solid darkgrey;
+      }
+      .navi a:link,
+      .navi a:visited {
+        /* 방문한 링크와 방문하지 않은 링크를 설정 */
+        display: block;
+        font-size: 14px;
+        color: #000;
+        padding: 10px;
+        text-decoration: none; /* 밑줄 없앰 */
+        text-align: center;
+      }
+
+      /* 실무에서는 이 방법을 사용함. 가독성, 유지보수에서 기본 스타일을 잡고, 특수한 경우(마지막 요소)만 덮어쓴다"는 개념이 CSS의 기본 원리에 더 부합*/
+      .navi a:hover {
+        color: white;
+        background-color: darkslateblue;
+        animation: up 1s ease-out forwards;
+      }
+
+      /*
+       위 코드랑 기능은 일치. "마지막이 아닌 녀석들만" 골라서 보라색.
+       .navi li:not(:last-child) a:hover {
+         color: white;
+         background-color: darkslateblue;
+       }
+      */
+
+      /*
+      Cascading(계층성)때문에, 똑같은 힘을 가진 선택자라면 나중에(아래에) 쓴 코드가 이전 코드를 덮어씀.
+      마지막 메뉴를 빨간색으로 설정 -> li:last-child a:hover
+      a:hover li:last-child 이렇게하면 작동하지 않음.
+      */
+      .navi li:last-child a:hover {
+        color: white;
+        background-color: red;
+      }
+
+      .q3 {
+        text-align: center;
+      }
+      .q3_img {
+        box-sizing: content-box;
+        border-radius: 50%;
+        border: 3px solid #e0ecc7;
+        box-shadow: 2px 2px 10px 1px gray;
+        animation: rotate 2s forwards infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          /* 0도 -> x축 -180도 회전 -> y축 -180도 회전*/
+          transform: perspective(200px) rotateY(0deg);
+        }
+        50% {
+          transform: perspective(200px) rotateY(-180deg);
+        }
+        to {
+          transform: perspective(200px) rotateY(-360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="q1-list">
+        <li>
+          <img src="/Day05/images/prod1.jpg" alt="이미지1" />
+          <div class="caption">
+            <h3>상품1</h3>
+            <p>상품 1 설명 텍스트</p>
+            <p>가격 : 12,345원</p>
+          </div>
+        </li>
+
+        <li>
+          <img src="/Day05/images/prod2.jpg" alt="이미지2" />
+          <div class="caption">
+            <h3>상품2</h3>
+            <p>상품 2 설명 텍스트</p>
+            <p>가격 : 12,345원</p>
+          </div>
+        </li>
+
+        <li>
+          <img src="/Day05/images/prod3.jpg" alt="이미지3" />
+          <div class="caption">
+            <h3>상품3</h3>
+            <p>상품 3 설명 텍스트</p>
+            <p>가격 : 12,345원</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div style="clear: both"></div>
+    <div id="container">
+      <nav class="navi">
+        <ul>
+          <li><a href="#">메뉴1</a></li>
+          <li><a href="#">메뉴2</a></li>
+          <li><a href="#">메뉴3</a></li>
+          <li><a href="#">메뉴4</a></li>
+          <li><a href="#">메뉴5</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="q3">
+      <img class="q3_img" src="/Day03/images/bear.jpg" alt="" />
+    </div>
+  </body>
+</html>
