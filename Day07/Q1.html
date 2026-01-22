@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q1. 4의 배수</title>
+  </head>
+  <body>
+    <h1>4의 배수</h1>
+    <script>
+      let num;
+
+      num = prompt("숫자를 입력하시오.");
+      console.log(num);
+      
+      if (num !== null) { // 입력 안했을 경우 방지 취소 입력 안하고 확인, 취소 눌렀을때 null값이 넘어가서 null은 
+        if (num % 4 === 0) {
+          document.write(num + "은(는) 4의 배수입니다.");
+        } else {
+          document.write(num + "은(는) 4의 배수가 아닙니다.");
+        }
+      }
+    </script>
+  </body>
+</html>

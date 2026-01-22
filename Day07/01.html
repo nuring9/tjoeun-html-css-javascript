@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid columns, rows</title>
+    <style>
+      #wrapper {
+        width: 600px;
+        display: grid; /* 그리드 컨테이너 지정 */
+        grid-template-columns: /*1fr 1fr 1fr; / 200px 200px 200px */ repeat(
+          3,
+          1fr
+        ); /* 너비 200px 칼럼 3개 */
+        /* fr 상대적 크기 1fr은 width 기준으로 나눠 집니다.  */
+        grid-template-rows: /* 100px; */ /* 줄높이 100 */ minmax(
+          100px,
+          auto
+        ); /* 최소값 100px 최대값 auto */
+      }
+      .items {
+        padding: 10px;
+        background-color: #eee;
+      }
+      .items:nth-child(odd) {
+        background-color: #bbb;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="items">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,
+        reprehenderit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+      </div>
+      <div class="items">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum
+        dolor, sit amet consectetur adipisicing elit
+      </div>
+      <div class="items">
+        Lorem ipsum dolor sit amet.Lorem ipsum dolor, sit amet consectetur
+        adipisicing
+      </div>
+      <div class="items">
+        Lorem ipsum dolor sit.Lorem ipsum dolor, sit amet consectetur
+        adipisicing elit
+      </div>
+      <div class="items">Lorem, ipsum dolor.</div>
+    </div>
+  </body>
+</html>

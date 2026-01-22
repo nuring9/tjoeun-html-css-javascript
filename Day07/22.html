@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow Function</title>
+  </head>
+  <body>
+    <script>
+      // const hi = function() { return "안녕하세요?" }
+      // 매개변수 없는 경우
+      const hi = () => {
+        return "안녕하세요";
+      };
+      hi();
+      console.log(hi());
+
+      // 매개변수 있는 경우
+      const hi1 = (user) => {
+        document.write(user + "님, 안녕하세요?</br>");
+      };
+      hi1("경희");
+      // const sum = function(a, b) { return a + b; }
+
+      let sum = (a, b) => a + b;
+      document.write("두 수의 합 : " + sum(10, 20));
+    </script>
+  </body>
+</html>

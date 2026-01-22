@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>즉시실행 함수</title>
+    <style>
+      body {
+        padding-top: 20px;
+        text-align: center;
+      }
+      .accent {
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #00f;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      (function (num) {
+        var userNumber = prompt("이름을 입력하세요.");
+        document.write(
+          "안녕하세요? <span class='accent'>" + userNumber + num + "</span>님!",
+        );
+      })(5);
+    </script>
+  </body>
+</html>
