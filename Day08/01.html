@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=c:\Users\tj-bu-702-09\Documents\카카오톡 받은 파일\function.css, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="css/function.css" />
+    <title>자바스크립트 이벤트</title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="#" onclick="changeBg('green')">Green</a></li>
+      <li><a href="#" onclick="changeBg('orange')">Orange</a></li>
+      <li><a href="#" onclick="changeBg('purple')">Purple</a></li>
+    </ul>
+    <div id="result"></div>
+    
+    <script>
+        function changeBg(color) {
+            var result = document.querySelector('#result');
+            result.style.backgroundColor = color;
+        }
+    </script>
+  </body>
+</html>

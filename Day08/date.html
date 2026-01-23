@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>날짜 관련 혼자 해보기</title>
+    <style>
+      body {
+        text-align: center;
+        margin-top: 100px;
+        font-family: "Arial", sans-serif;
+        font-size: 3rem;
+        background-color: #f0f0f0;
+      }
+      #clock {
+        color: #333;
+        background-color: #fff;
+        display: inline-block;
+        padding: 20px 40px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 현재 시간이 표시될 영역 -->
+    <div id="clock">--:--:--</div>
+    <!-- 오늘 날짜 표시될 영역 -->
+    <div id="date">YYYY-MM-DD</div>
+    <script>
+      // 현재 시간을 가져와서 화면에 표시하는 함수
+      function updateClock() {
+        const now = new Date(); // 현재 시간과 날짜 객체 생성
+        const hours = String(now.getHours()).padStart(2, "0"); // 시 (두 자리로 맞추기)
+        const minutes = String(now.getMinutes()).padStart(2, "0"); // 분 (두 자리)
+        const seconds = String(now.getSeconds()).padStart(2, "0"); // 초 (두 자리)
+
+        const timeString = `${hours}:${minutes}:${seconds}`; // "HH:MM:SS" 문자열로 만듦
+        document.getElementById("clock").innerText = timeString; // 화면에 출력
+      }
+
+      updateClock(); // 처음 페이지 로드되었을 때 한 번 실행
+      setInterval(updateClock, 1000); // 1초(1000ms)마다 updateClock 함수를 반복 실행해서 화면 시간 갱신
+      // setInterval(함수, 밀리초); 일정한 시간마다 반복해서 어떤 함수를 실행하게 해주는 자바스크립트 내장 함수.
+        /*
+        setInterval(function () {
+        console.log("1초 지났음!");
+        }, 1000);
+        1초마다 콘솔에 "1초 지났음!"이 출력
+        */
+       
+      // 오늘 날짜 구하는 구간
+      let today = new Date();
+
+      // 연, 월, 일 가져오기
+      let year = today.getFullYear();
+      let month = String(today.getMonth() + 1).padStart(2, "0"); // 0~11이니까 +1
+      let day = String(today.getDate()).padStart(2, "0"); // 1~31
+
+      // YYYY-MM-DD 형식으로 조합
+      let formattedDate = `${year}-${month}-${day}`;
+      document.getElementById("date").innerText = "오늘 날짜는: " + formattedDate;
+     //  document.write("오늘 날짜는: " + formattedDate);    document.write를 사용하하면 실행 시점 이후에 전체 화면을 덮어쓰기 때문에 시계가 안 보이게 돼버림.
+     // <div id="date">를 만들고 넣기
+    </script>
+  </body>
+</html>

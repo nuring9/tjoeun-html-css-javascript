@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q3. 비교 숫자</title>
+  </head>
+  <body>
+    <script>
+      let num1 = parseInt(prompt("비교할 첫 번째 숫자"));
+      let num2 = parseInt(prompt("비교할 두 번째 숫자"));
+
+      compareTwo(num1, num2);
+      function compareTwo(x, y) {
+        if (num1 !== null) {
+          if (x > y) {
+            confirm(`${x}(이)가 ${y}보다 큽니다.`);
+          } else if (num1 === num2) {
+            confirm(`${x}(이)가 ${y}와 같습니다`);
+          } else {
+            confirm(`${x}(이)가 ${y}보다 작습니다`);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

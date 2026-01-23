@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q1</title>
+    <style>
+      table,
+      td {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+      }
+      td {
+        padding: 5px;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>자리 배치도</h1>
+
+    <script>
+      let memNum = parseInt(prompt("입장객은 몇 명인가요?")); //전체 입장객수
+      let colNum = parseInt(prompt("한 줄에 몇명씩 앉습니까?")); // 한 줄에 앉을 사람 수
+      let rowNum;
+      let seatNo;
+      if (memNum % colNum === 0) {
+        rowNum = memNum / colNum; // 나머지가 없을 때
+      } else {
+        rowNum = parseInt(memNum / colNum) + 1; // 나머지가 있을 때
+      }
+
+      console.log(rowNum);
+
+      document.write("<table>");
+
+      if (!isNaN(memNum) && !isNaN(colNum)) {
+        for (let i = 0; i < rowNum; i++) {
+          // 행
+          document.write("<tr>");
+          for (let j = 1; j <= colNum; j++) {
+            // 열
+            seatNo = i * colNum + j; // 좌석 번호
+            if (seatNo > memNum) break;
+            document.write("<td> 좌석 " + seatNo + " </td>");
+          }
+          document.write("</tr>");
+        }
+        document.write("</table>");
+      }
+    </script>
+  </body>
+</html>

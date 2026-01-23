@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>현재시각</title>
+    <style>
+      p {
+        margin-top: 20px;
+        font-size: 1.2em;
+        text-align: center;
+      }
+      .display {
+        color: blue;
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <p>현재 시각1 - <span id="current" class="display"></span></p>
+     <p>현재 시각2 - <span id="current1" class="display"></span></p>
+    <script>
+      displayNow();
+      setInterval(displayNow, 1000);  // 1초마다 시간 계산 함수 실행
+ 
+      function displayNow() {
+        let now = new Date();
+  
+        // 시간별로 커스터마이징 가능한 방법.
+        let hours = String(now.getHours()).padStart(2, "0");
+        // 문자열.padStart(목표길이, "채울문자"); 문자열 앞에 원하는 문자로 채워서 길이를 맞추는 함수
+        let minutes = String(now.getMinutes()).padStart(2, "0");
+        let seconds = String(now.getSeconds()).padStart(2, "0");
+
+
+        // 단순하게 시:분:초 보고 싶을 때.
+         let currentTime1 = now.toLocaleTimeString();  
+         // toLocaleTimeString(); 한꺼번에 현재 시간을 문자열로 변환해주는 메서드
+         // 지역(locale) 에 맞게 형식(시간/분/초, 오전/오후 등) 도 자동으로 바꿔줌.
+
+        // let hour12 = parseInt(hours) % 12; // 24시간제를 12시간제 로 바꿈
+        // hour12 = hour12 === 0 ? 12 : hour12;  // 결과가 0이면 → 12로 바꿈
+
+        const ampm = parseInt(hours) < 12 ? "오전" : "오후"; // hours가 12보다 작으면 오전, 크면 오후
+
+        let currentTime = `${ampm} ${hours}:${minutes}:${seconds}`;
+        document.querySelector("#current").innerText = currentTime;
+        document.querySelector("#current1").innerText = currentTime1;
+
+        //   console.log(currentTime.split(":")[1]);
+        //    if(currentTime.split(":")[1] == "00") {
+        //     document.write("정각입니다.")
+        //    }else{
+        //     document.write("정각아닙니다.")
+        //    }
+      }
+    </script>
+  </body>
+</html>

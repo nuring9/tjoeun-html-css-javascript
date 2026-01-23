@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>당첨자 발표</title>
+    <style>
+      h1 {
+        border: 1px solid gray;
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>당첨자 발표</h1>
+    <p>전체 응모자 수 : <span id="total"></span>명</p>
+    <p>당첨자 : <span id="win"></span>번</p>
+    <script>
+      let person = prompt("전체 응모자 수 : ");
+
+      let winner = Math.round(Math.random() * person + 1);
+      document.querySelector("#total").innerText = person;
+      document.querySelector("#win").innerText = winner;
+    </script>
+  </body>
+</html>

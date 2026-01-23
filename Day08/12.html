@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>web Programming</title>
+    <link rel="stylesheet" href="css/nodelist.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>Web Programming</h1>
+      <p>공부할 주제를 기록해 보세요</p>
+      <p>공부가 끝난 것은 클릭해서 삭제할 수 있습니다.</p>
+      <form action="">
+        <!-- 입력 폼 (action 비워둠 → 서버 전송 안 함) -->
+        <input type="text" id="subject" autofocus />
+        <!-- 공부할 내용을 입력하는 텍스트 박스
+             autofocus → 페이지 열리면 커서 자동 위치 -->
+        <button onclick="newRegister(); return false;">
+          추가
+        </button>
+        <!-- 버튼 클릭 시 newRegister() 실행 
+             return false → form의 새로고침 방지 -->
+      </form>
+      <hr />
+      <ul id="itemList"></ul>
+      <!-- 입력한 공부 주제가 들어갈 목록 -->
+    </div>
+    <script>
+      function newRegister() {
+       
+        let newItem = document.createElement("li");
+        // <li> 요소를 새로 생성
+
+        let subject = document.querySelector("#subject");
+        // 입력창(<input>) 선택
+      
+        let newText = document.createTextNode(subject.value);
+        // 입력한 글자를 텍스트 노드로 생성
+ 
+        newItem.appendChild(newText); 
+         // <li> 안에 텍스트 추가
+         // 결과: <li>공부내용</li>   
+    
+        let itemList = document.querySelector("#itemList");
+        // <ul> 요소 선택
+
+        itemList.insertBefore(newItem, itemList.childNodes[0]);
+        // 새 항목을 리스트 맨 위에 추가 (첫 번째 자식 앞에 삽입)
+
+        subject.value = "";
+        // 입력창 비우기
+        
+        let items = document.querySelectorAll("li"); 
+        // 모든 <li>를 NodeList로 가져옴
+
+        for (let i = 0; i < items.length; i++) {  // 모든 항목을 반복 처리
+          items[i].addEventListener("click", function () { // 각 <li>를 클릭하면 실행
+
+            if (this.parentNode) {  
+              this.parentNode.removeChild(this);
+              // removeChild()는 “부모가 자식을 제거”하는 방식
+              // 부모가 자식을 직접 제거해야 정상 동작하므로 나(this)를 내 부모에게 시켜서 없애는 구조
+              // 예) 클릭한 <li>를 부모(<ul>)에서 삭제
+              // <ul>
+              // <li>공부내용</li> ← 이걸 클릭하면 this
+              // </ul> ← 이게 parentNode
+
+            }
+  
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

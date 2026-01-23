@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        #container{
+            width: 500px;
+            margin: 10px auto;
+            padding: 20px;
+        }
+        #info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>DOM을 공부합시다</h1>
+        <a href="#" onclick="addp(); this.onclick='';">더 보기</a>
+        <div id="info"></div>
+    </div>
+    <script>
+        function addp() {
+            let newP = document.createElement("p");  // <p></p> 요소 생성 (아직 화면에는 없음)
+            let txtNode = document.createTextNode("DOM은 Document Object Model의 줄임말입니다.");  // 텍스트 노드 생성
+            newP.appendChild(txtNode);
+            // <p> 안에 텍스트 넣기
+            // → <p>DOM은 Document Object Model의 줄임말입니다.</p>
+            // <p></p>
+            //"DOM은 Document Object Model의 줄임말입니다."
+            //<p>DOM은 Document Object Model의 줄임말입니다.</p>
+
+
+            document.getElementById("info").appendChild(newP);
+            // #info div 선택 그 안에 완성된 newP 노드 자체를 #info의 자식으로 이동(삽입)
+            // <div id="info"></div>
+            // <div id="info"><p>DOM은 Document Object Model의 줄임말입니다.</p></div>
+        }
+    </script>
+</body>
+</html>
