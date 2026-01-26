@@ -4,17 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>라이트 박스</title>
-    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/lightbox.css" />
   </head>
   <body>
     <div class="row">
       <ul>
         <li>
+          <!-- data-src = HTML에서 만든 “사용자 정의 데이터 속성"( HTML에 숨겨두는 JS용 데이터 저장소 )-->
           <img
             src="/Day08/images/tree-1-thumb.jpg"
             data-src="/Day08/images/tree-1.jpg"
             class="pic"
           />
+          <!-- src : 작은 썸네일 이미지
+               data-src : 클릭 시 보여줄 큰 이미지
+               class="pic" : JS에서 클릭 대상 지정
+          -->
         </li>
         <li>
           <img
@@ -54,26 +59,43 @@
       </ul>
     </div>
     <div id="lightbox">
+      <!-- 큰 이미지가 뜨는 오버레이 영역 -->
       <img src="/Day08/images/tree-1.jpg" id="lightboxImage" />
+      <!-- 실제로 교체되며 보여질 큰 이미지 -->
     </div>
     <script>
       let pics = document.getElementsByClassName("pic");
+      // 모든 썸네일 이미지 가져오기
       let lightbox = document.getElementById("lightbox");
       let lightboxImage = document.getElementById("lightboxImage");
+      // 라이트박스 영역과 이미지 선택
 
       for (let i = 0; i < pics.length; i++) {
+        // 모든 썸네일에 클릭 이벤트 등록
         pics[i].addEventListener("click", showLightBox);
       }
 
       function showLightBox() {
+        // 썸네일 클릭 시 실행
         let small_src = this.getAttribute("data-src");
+        // getAttribute = HTML 속성값을 가져오는 함수, HTML에 적혀 있는 값 그대로 가져옴. 예: "b.jpg"
+        // 클릭한 이미지의 큰 이미지 경로 가져오기
         lightboxImage.setAttribute("src", small_src);
+        // setAttribute = HTML 속성값을 새로 설정(변경)하는 함수, 기존 값이 있으면 덮어씀, 없으면 새 속성 생성.
+        // element.setAttribute("속성이름", "값"), 예: img.setAttribute("src", "b.jpg");
+        // 라이트박스 이미지 교체
         lightbox.style.display = "block";
+        // 라이트박스 화면에 표시
       }
+      // this = 클릭된 img.pic 요소
+      // 클릭한 이미지에 들어있는 data-src="큰이미지경로" 값을 가져옴
+      // 라이트박스 안 <img>의 src를 방금 가져온 큰 이미지로 교체
+      // 숨겨져 있던 라이트박스를 화면에 표시
 
       lightbox.onclick = function () {
         lightbox.style.display = "none";
       };
+      // 라이트박스 클릭하면 닫힘
     </script>
   </body>
 </html>

@@ -33,30 +33,58 @@
     <form>
       <input type="text" id="rCount" value="1" />행
       <input type="text" id="cCount" value="1" />열
-      <button onclick="drawTable();return false;">
+      <!-- 행(row), 열(column) 개수 입력칸, 기본값 1 -->
+      <button
+        onclick="
+          drawTable();
+          return false;
+        "
+      >
         작성
       </button>
+      <!-- 버튼 클릭 시 drawTable() 실행, return false → form 전송(새로고침) 방지 -->
     </form>
     <div id="contents"></div>
+    <!-- 생성된 테이블이 들어갈 영역 -->
+
     <script>
       function drawTable() {
-        let content = document.querySelector("#contents");
-        contents.replaceChildren();
+        let contents = document.querySelector("#contents");
+        // 테이블이 들어갈 <div id="contents"> 선택
+
+        console.log(contents.firstChild);
+        // contents 안에 이미 자식 요소가 있는지 확인, 콘솔에서 확인용
+
+        if (contents.firstChild) { 
+          contents.removeChild(contents.firstChild);
+        }
+        //기존 테이블이 있으면 삭제 → 새 테이블을 그리기 위한 초기화
+
         let rCount = document.querySelector("#rCount").value;
         let cCount = document.querySelector("#cCount").value;
+        // 사용자가 입력한 행(row), 열(column) 값, 문자열이지만 반복문에서 자동 숫자 처리됨
+
         let newTable = document.createElement("table");
+        // <table> 태그 생성 (아직 화면엔 없음)
+
         for (let i = 0; i < rCount; i++) {
           let newRow = document.createElement("tr");
+          // 행 개수만큼 <tr> 생성
           for (let j = 0; j < cCount; j++) {
             let newCell = document.createElement("td");
+            // 열 개수만큼 <td> 생성
             let cellText = document.createTextNode(i + ", " + j);
+            // 셀에 들어갈 텍스트 노드 생성. 예: 0, 0, 0, 1
             newCell.appendChild(cellText);
+            // td 안에 텍스트 삽입
             newRow.appendChild(newCell);
+            // tr 안에 td 추가
           }
           newTable.appendChild(newRow);
+          // 완성된 한 줄을 table에 추가
         }
-        let contents = document.querySelector("#contents");
         contents.appendChild(newTable);
+        // 최종 완성된 테이블을 화면에 표시
       }
     </script>
   </body>

@@ -35,12 +35,17 @@
 
     <script>
       let checks = document.querySelectorAll(".check");
+      // .check 클래스를 가진 모든 span 선택
+      // 결과: NodeList(배열 비슷한 객체)
       for (let i = 0; i < checks.length; i++) {
+        // 모든 체크표시 반복 처리
         checks[i].addEventListener("click", function () {
-          // this -> span
-          // this.parentNode -> li
+          // 체크표시 클릭 시 실행
           this.parentNode.style.color = "#ccc";
           this.parentNode.style.textDecoration = "line-through";
+          // this -> span
+          // this.parentNode -> li
+          // parentNode = 현재 요소의 부모 요소
         });
       }
     </script>
