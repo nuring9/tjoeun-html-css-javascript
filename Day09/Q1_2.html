@@ -1,0 +1,99 @@
+<!-- 실무스타일 리펙토링 -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery - Professional Style</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #eee;
+        margin: 0;
+      }
+      #wrapper {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1em;
+        padding: 20px;
+      }
+      
+      /* 썸네일 스타일 */
+      #img_thumb img {
+        cursor: pointer;
+        transition: transform 0.2s;
+        margin: 5px;
+      }
+      #img_thumb img:hover {
+        transform: scale(1.05);
+      }
+
+      /* 실무형 모달: 딱 하나만 존재함 */
+      #imageModal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: none; /* 기본은 숨김 */
+        
+        /* 중앙 정렬을 위한 Flexbox */
+        align-items: center;
+        justify-content: center;
+        
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        cursor: pointer; /* 배경 클릭 시 닫힐 것임을 암시 */
+      }
+
+      #imageModal img {
+        max-width: 90%;
+        max-height: 80vh;
+        border: 5px solid white;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="img_thumb">
+        <img onclick="openModal('/Day08/images/tree-1.jpg')" src="/Day08/images/tree-1-thumb.jpg" />
+        <img onclick="openModal('/Day08/images/tree-2.jpg')" src="/Day08/images/tree-2-thumb.jpg" />
+        <img onclick="openModal('/Day08/images/tree-3.jpg')" src="/Day08/images/tree-3-thumb.jpg" />
+        <br />
+        <img onclick="openModal('/Day08/images/tree-4.jpg')" src="/Day08/images/tree-4-thumb.jpg" />
+        <img onclick="openModal('/Day08/images/tree-5.jpg')" src="/Day08/images/tree-5-thumb.jpg" />
+        <img onclick="openModal('/Day08/images/tree-6.jpg')" src="/Day08/images/tree-6-thumb.jpg" />
+      </div>
+
+      <div id="imageModal" onclick="closeModal()">
+        <img id="modalImg" src="" alt="Full Image" />
+      </div>
+    </div>
+
+    <script>
+      const modal = document.querySelector("#imageModal");
+      const modalImg = document.querySelector("#modalImg");
+
+      // 이미지를 여는 함수
+      function openModal(imgSrc) {
+        modalImg.src = imgSrc;      // 클릭한 이미지의 경로를 모달 이미지에 주입
+        modal.style.display = "flex"; // Flex로 보여줘서 정중앙 배치
+      }
+
+      // 이미지를 닫는 함수
+      function closeModal() {
+        modal.style.display = "none";
+        modalImg.src = ""; // 이미지 초기화
+      }
+
+      // (보너스) 실무 디테일: ESC 키 누르면 닫기
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+    </script>
+  </body>
+</html>
